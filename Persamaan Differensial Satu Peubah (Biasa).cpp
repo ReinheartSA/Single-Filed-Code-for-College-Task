@@ -2,25 +2,12 @@
 #include <cmath> // ini library untuk fungsi matematika seperti abs() dan tan()
 using namespace std;
 
-int tan(double x) {
-    double sum = 0;
-    double term = x;
-    int n = 1;
 
-    while (abs(term) > 1e-6) {
-        sum += term;
-        n++;
-        term *= -x * x / (n * (n - 1));
-    }
-
-    return sum;
-}
-
-int f(double x, double y) {
+void f(double x, double y) {
     return 1 + y*y;
 }
 
-int y_euler (double x0, double y0, double h, int n) {
+void y_euler (double x0, double y0, double h, int n) {
     double x = x0;
     double y = y0;
 
@@ -32,7 +19,7 @@ int y_euler (double x0, double y0, double h, int n) {
     return y;
 }
 
-int heun (double x0, double y0, double h, int n) {
+void heun (double x0, double y0, double h, int n) {
     double x = x0;
     double y = y0;
 
@@ -46,7 +33,7 @@ int heun (double x0, double y0, double h, int n) {
     return y;
 }
 
-int runge_kutta_3 (double x0, double y0, double h, int n) {
+void runge_kutta_3 (double x0, double y0, double h, int n) {
     double x = x0;
     double y = y0;
 
@@ -61,7 +48,7 @@ int runge_kutta_3 (double x0, double y0, double h, int n) {
     return y;
 }
 
-int runge_kutta_4 (double x0, double y0, double h, int n) {
+void runge_kutta_4 (double x0, double y0, double h, int n) {
     double x = x0;
     double y = y0;
 
