@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath> // ini library untuk fungsi matematika seperti abs() dan tan()
 using namespace std;
 
 int tan(double x) {
