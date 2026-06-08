@@ -3,11 +3,11 @@
 using namespace std;
 
 
-void f(double x, double y) {
+double f(double x, double y) {
     return 1 + y*y;
 }
 
-void y_euler (double x0, double y0, double h, int n) {
+double y_euler (double x0, double y0, double h, int n) {
     double x = x0;
     double y = y0;
 
@@ -19,7 +19,7 @@ void y_euler (double x0, double y0, double h, int n) {
     return y;
 }
 
-void heun (double x0, double y0, double h, int n) {
+double heun (double x0, double y0, double h, int n) {
     double x = x0;
     double y = y0;
 
@@ -33,7 +33,7 @@ void heun (double x0, double y0, double h, int n) {
     return y;
 }
 
-void runge_kutta_3 (double x0, double y0, double h, int n) {
+double runge_kutta_3 (double x0, double y0, double h, int n) {
     double x = x0;
     double y = y0;
 
@@ -48,7 +48,7 @@ void runge_kutta_3 (double x0, double y0, double h, int n) {
     return y;
 }
 
-void runge_kutta_4 (double x0, double y0, double h, int n) {
+double runge_kutta_4 (double x0, double y0, double h, int n) {
     double x = x0;
     double y = y0;
 
@@ -67,13 +67,16 @@ void runge_kutta_4 (double x0, double y0, double h, int n) {
 
 int main () {
     double x0 = 0, y0 = 0;
-    double h = cin >> h;
+    double h;
+    cout << "Enter the step size (h): ";
+    cin >> h;
     cout << "Enter the maximum value of y: ";
-    double y_max = cin >> y_max;
+    double y_max;
+    cin >> y_max;
     int n = y_max / h;
     cout << "Euler's method: " << y_euler(x0, y0, h, n) << endl;
     cout << "Heun's method: " << heun(x0, y0, h, n) << endl;
     cout << "Runge-Kutta 3rd order method: " << runge_kutta_3(x0, y0, h, n) << endl;
     cout << "Runge-Kutta 4th order method: " << runge_kutta_4(x0, y0, h, n) << endl;
-    cout << "Exact solution: " << tan(x0) << endl;
+    cout << "Exact solution: " << tan(y_max) << endl;
 }
